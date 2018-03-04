@@ -13,8 +13,8 @@
     "popper.js": "^1.12.9",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "webpack": "^3.11.0",
-    "webpack-dev-server": "^2.11.1"
+    "webpack": "^4.1.0",
+    "webpack-dev-server": "^3.1.0"
   },
   "devDependencies": {},
   "scripts": {
