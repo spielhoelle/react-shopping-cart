@@ -1,9 +1,12 @@
-const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
+// const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+
 var config = {
   entry: './src/main.js',
   output: {
-    path:'/',
-    filename: './dist/index.js',
+    path: path.resolve(__dirname, "dist"),
+    filename: 'index.js',
   },
   devServer: {
     inline: true,
@@ -19,29 +22,16 @@ var config = {
           presets: ['es2015', 'react']
         }
       },
-      {
-        test: /\/.pug$/,
-        // loader and use are the same
-        loader: [
-          "file-loader?name=[path][name].html",
-          "extract-loader",
-          "html-loader",
-          "pug-html-loader"
-        ],
-      }
     ],
   },
   plugins: [
-    new StaticSiteGeneratorPlugin({
-      paths: [
-        '/index.pug'
-      ],
-      locals: {
-        // Properties here are merged into `locals`
-        // passed to the exported render function
-        greet: 'Hello'
-      }
-    })
+    new HtmlWebpackPlugin({
+      title: 'Pug Test',
+      minify: {
+          collapseWhitespace: true
+      },
+      template: '!!pug-loader!src/index.pug',
+    }),
   ]
 }
 module.exports = config;
