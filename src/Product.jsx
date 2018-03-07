@@ -1,6 +1,15 @@
 import React from 'react';
 
 class Product extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { liked: false }
+    this.likeItem = this.likeItem.bind(this);
+  }
+  likeItem(item) {
+    this.state.liked = !this.state.liked
+    this.setState(this.state)
+  }
   render() {
     return (
 
@@ -9,6 +18,7 @@ class Product extends React.Component {
           <div>
             <h6 className="my-0">{this.props.data.name}</h6>
             <small className="text-muted">Release: { this.props.data.release }</small>
+            <button className={ "btn btn-sm " + ( this.state.liked ? "btn-danger" : "btn-outline-danger"  ) } onClick = {(e) => this.likeItem(this)}>-</button>
           </div>
           <div className="d-flex flex-column">
             <span className="text-muted d-flex justify-content-center align-items-baseline">
