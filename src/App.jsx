@@ -1,11 +1,12 @@
 import React from 'react';
-import Product from './Product.jsx';
 import CheckoutForm from './CheckoutForm.jsx';
+import Header from './Header.jsx';
 
 class App extends React.Component {
   render() {
     return (
       <div>
+        <Header/>
         <CheckoutForm/>
       </div>
     );
