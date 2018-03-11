@@ -1,6 +1,10 @@
 import React from 'react';
 
 class Form extends React.Component {
+  constructor (props) {
+      super(props);
+  }
+
   render() {
     return (
         <div className="col-md-8 order-md-1">
@@ -9,14 +13,14 @@ class Form extends React.Component {
             <div className="row">
               <div className="col-md-6 mb-3">
                 <label htmlFor="firstName">First name</label>
-                <input type="text" className="form-control" id="firstName" placeholder="" value="" required=""/>
+                <input type="text" onChange={(e) => this.props.onChange(e.target.id, e.target.value)} className="form-control" id="firstName" value={this.props.data.firstName} placeholder=""  required=""/>
                 <div className="invalid-feedback">
                   Valid first name is required.
                 </div>
               </div>
               <div className="col-md-6 mb-3">
                 <label htmlFor="lastName">Last name</label>
-                <input type="text" className="form-control" id="lastName" placeholder="" value="" required=""/>
+                <input type="text" value={this.props.data.lastName} onChange={(e) => this.props.onChange(e.target.id, e.target.value)} className="form-control" id="lastName" placeholder=""  required=""/>
                 <div className="invalid-feedback">
                   Valid last name is required.
                 </div>
@@ -29,7 +33,7 @@ class Form extends React.Component {
                 <div className="input-group-prepend">
                   <span className="input-group-text">@</span>
                 </div>
-                <input type="text" className="form-control" id="username" placeholder="Username" required=""/>
+                <input type="text" className="form-control" onChange={(e) => this.props.onChange(e.target.id, e.target.value)} value={this.props.data.userName} id="userName" placeholder="Username" required=""/>
                 <div className="w-100 invalid-feedback">
                   Your username is required.
                 </div>
@@ -38,7 +42,7 @@ class Form extends React.Component {
 
             <div className="mb-3">
               <label htmlFor="email">Email <span className="text-muted">(Optional)</span></label>
-              <input type="email" className="form-control" id="email" placeholder="you@example.com"/>
+              <input type="email" className="form-control" onChange={(e) => this.props.onChange(e.target.id, e.target.value)} value={this.props.data.email} id="email" placeholder="you@example.com"/>
               <div className="invalid-feedback">
                 Please enter a valid email address for shipping updates.
               </div>
@@ -46,7 +50,7 @@ class Form extends React.Component {
 
             <div className="mb-3">
               <label htmlFor="address">Address</label>
-              <input type="text" className="form-control" id="address" placeholder="1234 Main St" required=""/>
+              <input type="text" className="form-control" value={this.props.data.address} onChange={(e) => this.props.onChange(e.target.id, e.target.value)} id="address" placeholder="1234 Main St" required=""/>
               <div className="invalid-feedback">
                 Please enter your shipping address.
               </div>
@@ -54,13 +58,13 @@ class Form extends React.Component {
 
             <div className="mb-3">
               <label htmlFor="address2">Address 2 <span className="text-muted">(Optional)</span></label>
-              <input type="text" className="form-control" id="address2" placeholder="Apartment or suite"/>
+              <input type="text" className="form-control" value={this.props.data.address2} onChange={(e) => this.props.onChange(e.target.id, e.target.value)} id="address2" placeholder="Apartment or suite"/>
             </div>
 
             <div className="row">
               <div className="col-md-5 mb-3">
                 <label htmlFor="country">Country</label>
-                <select className="custom-select d-block w-100" id="country" required="">
+                <select className="custom-select d-block w-100" value={this.props.data.country} onChange={(e) => this.props.onChange(e.target.id, e.target.value)} id="country" required="">
                   <option value="">Choose...</option>
                   <option>United States</option>
                 </select>
@@ -70,7 +74,7 @@ class Form extends React.Component {
               </div>
               <div className="col-md-4 mb-3">
                 <label htmlFor="state">State</label>
-                <select className="custom-select d-block w-100" id="state" required="">
+                <select className="custom-select d-block w-100" value={this.props.data.state} onChange={(e) => this.props.onChange(e.target.id, e.target.value)} id="state" required="">
                   <option value="">Choose...</option>
                   <option>California</option>
                 </select>
@@ -80,7 +84,7 @@ class Form extends React.Component {
               </div>
               <div className="col-md-3 mb-3">
                 <label htmlFor="zip">Zip</label>
-                <input type="text" className="form-control" id="zip" placeholder="" required=""/>
+                <input type="text" className="form-control" value={this.props.data.zip} onChange={(e) => this.props.onChange(e.target.id, e.target.value)} id="zip" placeholder="" required=""/>
                 <div className="invalid-feedback">
                   Zip code required.
                 </div>
