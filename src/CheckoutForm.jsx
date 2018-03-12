@@ -42,18 +42,20 @@ class CheckoutForm extends React.Component {
       ],
       total: 0
     }
-
     this.updateItem = this.updateItem.bind(this);
-
   }
   updateItem(item, index) {
+    var data = this.state.data
 
-    if ( index )
-      this.state.data[item.props.data.id].amount++
-    else if (this.state.data[item.props.data.id].amount > 0)
-      this.state.data[item.props.data.id].amount--
+    if ( index === "like" ) {
+        data[item.props.data.id].liked = !data[item.props.data.id].liked 
+      }
+    else if (index)
+      data[item.props.data.id].amount++
+    else if (data[item.props.data.id].amount > 0)
+      data[item.props.data.id].amount--
 
-    this.state.total = this.state.data.map((item, index, array)=> item.price * item.amount).reduce((a, b) => a + b, 0);
+    this.state.total = data.map((item, index, array)=> item.price * item.amount).reduce((a, b) => a + b, 0);
     this.setState(this.state)
     localStorage.setItem('react-cart', JSON.stringify(this.state));
 
