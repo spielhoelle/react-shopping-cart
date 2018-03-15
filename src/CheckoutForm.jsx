@@ -49,7 +49,7 @@ class CheckoutForm extends React.Component {
 
   onChange(field, value) {
     // local copy of state
-    let data = this.state.form;
+    let data = { ...this.state.form };
     // create form object with id of input
     data[field] = value
     // sync to state and to LC

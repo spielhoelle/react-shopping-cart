@@ -17,6 +17,7 @@
     "raw-loader": "^0.5.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "webpack": "^3.11.0"
   },
   "devDependencies": {
