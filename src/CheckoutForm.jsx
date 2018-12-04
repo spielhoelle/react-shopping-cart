@@ -47,7 +47,7 @@ class CheckoutForm extends React.Component {
     this.updateItem = this.updateItem.bind(this);
   }
 
-  onChange(field, value) {
+  onChange = (field, value) => {
     // local copy of state
     let data = { ...this.state.form };
     // create form object with id of input
@@ -57,7 +57,7 @@ class CheckoutForm extends React.Component {
     localStorage.setItem('react-cart', JSON.stringify(this.state));
   }
 
-  updateItem(item, index) {
+  updateItem = (item, index) => {
     var data = this.state.data
 
     if ( index === "like" ) {
@@ -103,7 +103,7 @@ class CheckoutForm extends React.Component {
           </div>
 
           { /* Form needs data on load and the change handler */ }
-          <Form data={this.state.form} onChange={this.onChange.bind(this)} />
+          <Form data={this.state.form} onChange={this.onChange} />
 
         </div>
     );

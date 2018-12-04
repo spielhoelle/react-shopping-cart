@@ -7,8 +7,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       headerdata: {
-          "title": "Hello from Blabla",
-          "desc": "Below is an example form built entirely with Bootstrap's form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it."
+          "title": "React shopping cart",
+          "desc": "Below you find a react shopping cart which persists its data to the LocalStorage. Refactor it using Redux!"
         }
     }
   }
