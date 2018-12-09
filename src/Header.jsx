@@ -1,14 +1,23 @@
-import React from 'react';
+import React from "react";
+import { connect } from "react-redux";
 
 class Header extends React.Component {
   render() {
     return (
       <div className="py-5 text-center">
-        <img className="d-block mx-auto mb-4" src="/dist/img/couch@2x.svg" alt="" width="72" height="72"/>
-        <h2>{this.props.headerdata.title }</h2>
-          <p className="lead">{this.props.headerdata.desc }</p>
+        <h2>{this.props.headerdata.title}</h2>
+        <p className="lead">{this.props.headerdata.desc}</p>
+        <form action="" onSubmit={this.props.deleteCache}>
+          <button className="btn btn-danger">delete cache</button>
+        </form>
       </div>
-      );
+    );
   }
 }
-export default Header;
+const mapDispatchToProps = dispatch => ({
+  deleteCache: () => dispatch({ type: "DELETE" })
+});
+export default connect(
+  state => ({ headerdata: state.headerdata }),
+  mapDispatchToProps
+)(Header);
